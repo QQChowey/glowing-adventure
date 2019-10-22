@@ -1,13 +1,18 @@
-import React from 'react'
-import TeamContainer from './components/team/team-container'
+import React from 'react';
+import TeamContainer from './components/team/team_container'
 
 function App() {
-    return (
+  return (
+    <div>
         <div>
-            Hello World!
-            <TeamContainer />
+            <TeamContainer id={["1", "2", "3", "4", "5", "0"]}/>
+            <TeamContainer id={["0", "2", "3", "4", "5", "6"]}/>
+            <TeamContainer id={["1", "2", "3", "4", "5", "6"]}/>
         </div>
-    )
+        Hello World!
+    </div>
+  );
 }
 
-export default App
+export default App;
+ 
