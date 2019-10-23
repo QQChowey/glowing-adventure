@@ -3,11 +3,11 @@ import MonsterFrame from "../monster_frame"
 
 function teamContainer(props) {
 
-
     const flexContainer = {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-around",
+        maxWidth: "600px",
     }
 
     const styleTeam = {
@@ -18,20 +18,24 @@ function teamContainer(props) {
         padding: "3px",
     }
 
-    return(
+    return (
         <div style={Object.assign({}, flexContainer, styleTeam)}>
-            <MonsterFrame id={props.id[0]}/>
+            <MonsterFrame
+                mons_id={props.mons_id[0]}
+                onClick={() => this.console.log(this.props)}
+            />
             <div style={Object.assign({}, flexContainer, styleSubs)}>
-                <MonsterFrame id={props.id[1]}/>
-                <MonsterFrame id={props.id[2]}/>
-                <MonsterFrame id={props.id[3]}/>
-                <MonsterFrame id={props.id[4]}/>
+                <MonsterFrame mons_id={props.mons_id[1]}/>
+                <MonsterFrame mons_id={props.mons_id[2]}/>
+                <MonsterFrame mons_id={props.mons_id[3]}/>
+                <MonsterFrame mons_id={props.mons_id[4]}/>
             </div>
-            <MonsterFrame id={props.id[5]}/>
+            <MonsterFrame mons_id={props.mons_id[5]}/>
         </div>
     )
+
 }
 
-teamContainer.defaultProps = {id: ["0", "0", "0", "0", "0", "0"]}
+teamContainer.defaultProps = {mons_id: []}
 
 export default teamContainer
