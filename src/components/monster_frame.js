@@ -1,35 +1,44 @@
-import React from "react"
+import React, {Component} from "react"
 
-function monsterFrame(props) {
-    let testUrl
+class monsterFrame extends Component {
+    constructor(props) {
+        super(props);
 
-    const styleContainer = {
-        backgroundColor: "none",
-        padding: "1%",
+        this.state = {
+            backgroundColor: "none",
+            padding: "1%",
+        }
     }
 
-    const styleImage = {
-        width: "100%",
-        opacity: "1.0",
+    static defaultProps = {
+        monsId: null,
+        canClick: false,
     }
 
-    if (!props.id || props.id === "0") {
-        testUrl = "https://via.placeholder.com/100"
-        styleImage.opacity = "0.0"
+    render() {
 
-    }
-    else {
-        testUrl = "https://raw.githubusercontent.com/QQChowey/PDC/master/images/portrait/" + props.id + ".png"
-        styleImage.opacity = "1.0"
-    }
+        let testUrl
 
-    return (
-        <div style={styleContainer}>
-            <img style={styleImage} src={testUrl} alt={props.id} />
-        </div>
-    )
+        const styleImage = {
+            width: "100%",
+            opacity: "1.0",
+        }
+
+        if (!this.props.monsId) {
+            testUrl = "https://via.placeholder.com/100"
+            styleImage.opacity = "0.0"
+        }
+        else {
+            testUrl = "https://raw.githubusercontent.com/QQChowey/PDC/master/images/portrait/" + this.props.monsId + ".png"
+            styleImage.opacity = "1.0"
+        }
+
+        return (
+            <div style={this.state} onClick={this.props.canClick ? () => this.setState({backgroundColor: "blue"}) : null}>
+                <img style={styleImage} src={testUrl} alt={this.props.monsId} />
+            </div>
+        )
+    }
 }
-
-monsterFrame.defaultProps = "0"
 
 export default monsterFrame
