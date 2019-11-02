@@ -1,13 +1,19 @@
 import React from 'react';
-import TeamContainer from './components/team/team_container'
+import ModeContainer from './containers/mode_container'
+import StatContainer from './containers/stat_container'
+import TeamContainer from './containers/team_container'
 
 function App() {
   return (
     <div>
         <div>
-            <TeamContainer id={["1", "2", "3", "4", "5", "0"]}/>
-            <TeamContainer id={["0", "2", "3", "4", "5", "6"]}/>
-            <TeamContainer id={["1", "2", "3", "4", "5", "6"]}/>
+            <ModeContainer />
+        </div>
+        <div>
+            <TeamContainer />
+        </div>
+        <div>
+            <StatContainer />
         </div>
         Hello World!
     </div>
@@ -15,4 +21,3 @@ function App() {
 }
 
 export default App;
- 
