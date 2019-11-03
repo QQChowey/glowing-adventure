@@ -1,16 +1,39 @@
 import React from 'react'
+import Data from '../../../reducers/reducer_monster_list'
+import {connect} from 'react-redux'
 
-function stat() {
+function Name(props) {
     const styleContainer = {
         backgroundColor: "lightblue",
         maxWidth: "600px",
     }
-    return(
+
+    const listNames = props.monsterList.map((monster) => {
+        return (
+            <option
+                key={"id/name" + monster["card_id"] + monster["name"]}
+                value={monster["card_id"] + ". " + monster["name"]}
+            >
+            </option>
+        )
+    })
+
+    return (
         <div style={styleContainer}>
-            ID / Name:
-            <input />
+            <label>ID / Name:
+                <input list="names" />
+            </label>
+            <datalist id="names">
+                {listNames}
+            </datalist>
         </div>
     )
 }
 
-export default stat
+function mapStateToProps(state) {
+    return {
+        monsterList: state.monsterList
+    }
+}
+
+export default connect(mapStateToProps)(Name)
